@@ -3,24 +3,36 @@ Napisz funkcję „subDigits”, która jako argument przyjmuje liczbę całkowi
 Na przykład: jeśli liczbą jest 12, funkcja zwraca  12 - 1 - 2 => 9.
 Jeśli liczba jest ujemna, funkcja zwraca komunikat „Argument Error”.
 */
- 
 
 /* Rozwiązanie */
+function subDigits(integer) {
+  if (integer < 0) {
+    return "Argument Error";
+  } else {
+    let newNumber=integer;
+    let myFunc = (num) => Number(num);
+    var intArr = Array.from(String(integer), myFunc);
+    for (let i = 0; i < intArr.length; i++) {
+      newNumber = newNumber - intArr[i];
+    }
+    return newNumber;
+  }
+}
 
+module.exports = subDigits;
 
 /* Weryfikacja */
 
 function verify(input, goal) {
-    if (input === goal) {
-      console.log('Gratulacje!');
-    } else {
-      console.log(`Niestety, oczekiwano - ${goal}, otrzymano - ${input}`);
-    }
+  if (input === goal) {
+    console.log("Gratulacje!");
+  } else {
+    console.log(`Niestety, oczekiwano - ${goal}, otrzymano - ${input}`);
   }
-  
-  verify(subDigits(12), 9);
-  verify(subDigits(4000000),3999996);
-  verify(subDigits(0),0);
-  verify(subDigits(451), 441);
-  verify(subDigits(-12), 'Argument Error');
-  
+}
+
+verify(subDigits(12), 9);
+verify(subDigits(4000000), 3999996);
+verify(subDigits(0), 0);
+verify(subDigits(451), 441);
+verify(subDigits(-12), "Argument Error");

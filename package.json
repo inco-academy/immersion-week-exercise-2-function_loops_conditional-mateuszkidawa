@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/pl-incode/function_loops_conditional-msoltysik#readme",
   "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@types/mocha": "^9.1.0",
     "jest": "^27.4.7"
   }
 }
