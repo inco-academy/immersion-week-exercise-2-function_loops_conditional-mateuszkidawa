@@ -8,22 +8,48 @@ Twoja funkcja zwraca „First player wins”, jeśli pierwszy gracz wygrał, „
 */
 
 /* Rozwiązanie */
-function rockPaperScissors(){
-  
+function rockPaperScissors(firstPlayer, secondPlayer) {
+  if (firstPlayer === "rock" && secondPlayer === "rock") {
+    console.log("Draw");
+    return "Draw";
+  } else if (firstPlayer === "rock" && secondPlayer === "paper") {
+    console.log("Second player wins");
+    return "Second player wins";
+  } else if (firstPlayer === "rock" && secondPlayer === "scissors") {
+    console.log("First player wins");
+    return "First player wins";
+  } else if (firstPlayer === "paper" && secondPlayer === "scissors") {
+    console.log("Second player wins");
+    return "Second player wins";
+  }
+
+  // if(firstPlayer==='rock' && secondPlayer==='rock')
+  // {
+  //   console.log("Draw")
+  // }
+  // else if(firstPlayer==='rock' && secondPlayer==='paper'){
+  //   console.log('Second player wins')
+  // }
+  // else if(firstPlayer==='rock' && secondPlayer==='scissors'){
+  //   console.log('First player wins')
+  // }
+  // else if( firstPlayer==='paper' && secondPlayer==='scissors'){
+  //   console.log('Second player wins')
+  // }
 }
 
 module.exports = rockPaperScissors;
 /* Weryfikacja */
 
 function verify(input, goal) {
-    if (input === goal) {
-      console.log('Gratulacje!');
-    } else {
-      console.log(`Niestety, oczekiwano - ${goal}, otrzymano - ${input}`);
-    }
+  if (input === goal) {
+    console.log("Gratulacje!");
+  } else {
+    console.log(`Niestety, oczekiwano - ${goal}, otrzymano - ${input}`);
   }
-  
-  verify(rockPaperScissors('rock', 'rock'), 'Draw');
-  verify(rockPaperScissors('rock', 'paper'),'Second player wins');
-  verify(rockPaperScissors('rock', 'scissors'),'First player wins');
-  verify(rockPaperScissors('paper', 'scissors'),'Second player wins');
+}
+
+verify(rockPaperScissors("rock", "rock"), "Draw");
+verify(rockPaperScissors("rock", "paper"), "Second player wins");
+verify(rockPaperScissors("rock", "scissors"), "First player wins");
+verify(rockPaperScissors("paper", "scissors"), "Second player wins");

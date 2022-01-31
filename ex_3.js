@@ -5,8 +5,24 @@ Zmień także funkcję tak, aby obsługiwała błędy. Jeśli jeden z przekazany
 
 /* Rozwiązanie */
 
-function rockPaperScissors(){
+function rockPaperScissors(firstPlayer,secondPlayer){
 
+  if(firstPlayer==='rock' && secondPlayer==='rock')
+  {
+    return "Draw"
+  }
+  else if(firstPlayer==='rock' && secondPlayer==='paper'){
+    return 'Second player wins'
+  }
+  else if(firstPlayer==='rock' && secondPlayer==='scissors'){
+    return 'First player wins'
+  }
+  else if( firstPlayer==='paper' && secondPlayer==='scissors'){
+    return 'Second player wins'
+  }
+  else if (firstPlayer!=='rock' || firstPlayer!=='paper' || firstPlayer!=='scissors' ||
+  secondPlayer!=='rock' || secondPlayer!=='paper' || secondPlayer!=='scissors')
+  return 'Argument error';
 }
 
 
